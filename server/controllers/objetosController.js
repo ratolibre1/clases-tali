@@ -26,31 +26,65 @@ var userIdCounter = 1;
 
 // Ejercicio 1: Crear perfil de usuario
 function crear(req, res) {
-  // TODO: Implementar creación de usuario
-  // 
-  // Pasos a seguir:
-  // 1. Obtener nombre, edad, email del req.body
-  // 2. Validar que todos los campos requeridos estén presentes
-  // 3. Validar formato de email (contiene @ y .)
-  // 4. Crear objeto usuario usando literal {}
-  // 5. Generar ID único (ej: "USR" + userIdCounter++)
-  // 6. Retornar: { usuario: object, mensaje: string, id: string }
-  // 
-  // Ejemplo de creación de objeto:
-  // var usuario = {
-  //   nombre: nombre,
-  //   edad: edad,
-  //   email: email,
-  //   fechaRegistro: new Date().toISOString()
-  // };
-  // 
-  // Si ciudad está presente, agregarla también:
-  // if (req.body.ciudad) {
-  //   usuario.ciudad = req.body.ciudad;
-  // }
+  // 1. EXTRAER DATOS del request body
+  var nombre = req.body.nombre;
+  var edad = req.body.edad;
+  var email = req.body.email;
+  var ciudad = req.body.ciudad; // opcional
 
+  // 2. VALIDACIONES de entrada
+  if (!nombre || typeof nombre !== 'string') {
+    return res.status(400).json({
+      error: "nombre es requerido y debe ser un string válido"
+    });
+  }
+
+  if (!edad || typeof edad !== 'number') {
+    return res.status(400).json({
+      error: "edad es requerida y debe ser un número válido"
+    });
+  }
+
+  if (edad < 0 || edad > 120) {
+    return res.status(400).json({
+      error: "edad debe estar entre 0 y 120 años"
+    });
+  }
+
+  if (!email || typeof email !== 'string') {
+    return res.status(400).json({
+      error: "email es requerido y debe ser un string válido"
+    });
+  }
+
+  if (email.indexOf('@') === -1 || email.indexOf('.') === -1) {
+    return res.status(400).json({
+      error: "email debe contener @ y . para ser válido"
+    });
+  }
+
+  // 3. LÓGICA PRINCIPAL - Crear objeto usuario
+  var userId = "USR" + userIdCounter;
+  userIdCounter++; // Incrementar contador para siguiente usuario
+
+  var usuario = {
+    id: userId,
+    nombre: nombre,
+    edad: edad,
+    email: email,
+    fechaRegistro: new Date().toISOString()
+  };
+
+  // Agregar ciudad si está presente
+  if (ciudad && typeof ciudad === 'string') {
+    usuario.ciudad = ciudad;
+  }
+
+  // 4. RESPUESTA con formato específico
   res.json({
-    message: "Función crear no implementada aún"
+    usuario: usuario,
+    mensaje: "Usuario creado exitosamente",
+    id: userId
   });
 }
 
