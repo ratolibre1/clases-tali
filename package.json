@@ -1,0 +1,29 @@
+{
+  "name": "clases-tali",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "nodemon server/index.js",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ratolibre1/clases-tali.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ratolibre1/clases-tali/issues"
+  },
+  "homepage": "https://github.com/ratolibre1/clases-tali#readme",
+  "dependencies": {
+    "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10",
+    "jest": "^29.7.0"
+  }
+}
