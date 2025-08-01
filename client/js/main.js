@@ -11,7 +11,11 @@ const routes = {
   '/loops': 'loops',
   '/switches': 'switches',
   '/arrays': 'arrays',
-  '/objetos': 'objetos'
+  '/objetos': 'objetos',
+  '/html': 'html',
+  '/css': 'css',
+  '/layout': 'layout',
+  '/responsive': 'responsive'
 };
 
 // Inicializar la aplicación
@@ -108,6 +112,18 @@ function loadExercise(type) {
     case 'objetos':
       ObjetosExercise.load();
       break;
+    case 'html':
+      HtmlExercise.load();
+      break;
+    case 'css':
+      CssExercise.load();
+      break;
+    case 'layout':
+      LayoutExercise.load();
+      break;
+    case 'responsive':
+      ResponsiveExercise.load();
+      break;
     case 'home':
     default:
       showWelcome();
@@ -122,7 +138,11 @@ function updatePageTitle(type) {
     'loops': 'Ejercicios de Bucles - Tutorial',
     'switches': 'Ejercicios de Switch-Case - Tutorial',
     'arrays': 'Ejercicios de Arrays - Tutorial',
-    'objetos': 'Ejercicios de Objetos - Tutorial'
+    'objetos': 'Ejercicios de Objetos - Tutorial',
+    'html': 'Ejercicios de HTML - Tutorial',
+    'css': 'Ejercicios de CSS - Tutorial',
+    'layout': 'Ejercicios de Layout - Tutorial',
+    'responsive': 'Ejercicios de Responsive - Tutorial'
   };
 
   document.title = titles[type] || titles['home'];
@@ -206,15 +226,72 @@ function showWelcome() {
           </ul>
           <small>✅ 5 ejercicios - 1 ejemplo implementado</small>
         </div>
+
+        <div class="exercise-card" onclick="loadPage('html')">
+          <h4>📄 HTML Semántico</h4>
+          <p>Domina la estructura y semántica de documentos web con HTML5.</p>
+          <p><strong>Ejercicios disponibles:</strong></p>
+          <ul>
+            <li>Crear cards de noticias con estructura semántica</li>
+            <li>Construir formularios con validación HTML5</li>
+            <li>Implementar navegación breadcrumb</li>
+            <li>Crear perfiles de usuario con datos estructurados</li>
+            <li>Desarrollar landing page con secciones semánticas</li>
+          </ul>
+          <small>✅ 5 ejercicios - 1 ejemplo implementado</small>
+        </div>
+
+        <div class="exercise-card" onclick="loadPage('css')">
+          <h4>🎨 CSS Básico</h4>
+          <p>Aplica estilos, colores y efectos visuales a tus elementos HTML.</p>
+          <p><strong>Ejercicios disponibles:</strong></p>
+          <ul>
+            <li>Crear botones con estados y animaciones</li>
+            <li>Diseñar cards de productos con hover effects</li>
+            <li>Implementar badges y tags estilizados</li>
+            <li>Crear spinners de carga animados</li>
+            <li>Diseñar formularios con estilos personalizados</li>
+          </ul>
+          <small>✅ 5 ejercicios - 1 ejemplo implementado</small>
+        </div>
+
+        <div class="exercise-card" onclick="loadPage('layout')">
+          <h4>📐 Layout & Posicionamiento</h4>
+          <p>Controla la disposición de elementos con Flexbox y CSS Grid.</p>
+          <p><strong>Ejercicios disponibles:</strong></p>
+          <ul>
+            <li>Crear layouts de 3 columnas con Flexbox</li>
+            <li>Implementar grids de productos responsive</li>
+            <li>Diseñar headers con navegación centrada</li>
+            <li>Crear sidebars fijos y contenido scrolleable</li>
+            <li>Implementar layouts tipo dashboard</li>
+          </ul>
+          <small>✅ 5 ejercicios - 1 ejemplo implementado</small>
+        </div>
+
+        <div class="exercise-card" onclick="loadPage('responsive')">
+          <h4>📱 Responsive & Animaciones</h4>
+          <p>Crea diseños adaptativos y micro-interacciones atractivas.</p>
+          <p><strong>Ejercicios disponibles:</strong></p>
+          <ul>
+            <li>Implementar navbar que colapsa en mobile</li>
+            <li>Crear galleries con lightbox CSS puro</li>
+            <li>Diseñar componentes con transiciones suaves</li>
+            <li>Implementar animaciones de loading y hover</li>
+            <li>Crear layouts completamente responsive</li>
+          </ul>
+          <small>✅ 5 ejercicios - 1 ejemplo implementado</small>
+        </div>
       </div>
 
       <div class="progress-info">
         <h4>📈 Tu Progreso de Aprendizaje</h4>
-        <p><strong>Total de ejercicios:</strong> 25 ejercicios distribuidos en 5 secciones</p>
-        <p><strong>Ejemplos implementados:</strong> 5 ejercicios completamente funcionales</p>
-        <p><strong>Pendientes:</strong> 20 ejercicios con TODOs detallados para que practiques</p>
+        <p><strong>Total de ejercicios:</strong> 45 ejercicios distribuidos en 9 secciones</p>
+        <p><strong>Ejemplos implementados:</strong> 9 ejercicios completamente funcionales</p>
+        <p><strong>Pendientes:</strong> 36 ejercicios con TODOs detallados para que practiques</p>
         <p><strong>Metodología:</strong> Cada ejercicio incluye instrucciones paso a paso, ejemplos de código y validación de respuestas</p>
-        <p><strong>Dificultad:</strong> Progresiva - desde conceptos básicos hasta manipulación de objetos complejos</p>
+        <p><strong>Dificultad:</strong> Progresiva - desde conceptos básicos de programación hasta diseño web responsive completo</p>
+        <p><strong>Tecnologías:</strong> JavaScript Backend (5 secciones) + HTML/CSS Frontend (4 secciones)</p>
       </div>
     </div>
   `;
@@ -223,4 +300,4 @@ function showWelcome() {
 // Función auxiliar para cargar páginas (usada en los onclick de las cards)
 function loadPage(type) {
   navigateTo(type === 'home' ? '/' : `/${type}`);
-} 
+}

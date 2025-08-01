@@ -259,6 +259,8 @@ pre {
 .exercise-form {
   max-width: 600px;
   margin: 0 auto;
+  position: relative;
+  z-index: 1;
 }
 
 .exercise-form h2 {
@@ -269,6 +271,8 @@ pre {
 
 .form-group {
   margin-bottom: 1rem;
+  position: relative;
+  z-index: 1;
 }
 
 .form-group label {
@@ -301,7 +305,7 @@ pre {
   cursor: pointer;
   /* Better dropdown styling */
   position: relative;
-  z-index: 10;
+  z-index: 1;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -341,6 +345,12 @@ pre {
   background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
   border-bottom: 1px solid #dee2e6;
   font-weight: 500;
+  cursor: pointer;
+}
+
+.form-group select option:first-child:hover {
+  background: linear-gradient(135deg, #e9ecef 0%, #dee2e6 100%);
+  color: #777;
 }
 
 .form-group select option:not(:first-child):hover {
@@ -627,6 +637,14 @@ pre {
     padding: 20px;
     margin: 20px 0;
   }
+
+  .form-group select {
+    margin-bottom: 1rem;
+  }
+
+  .exercise-form {
+    padding: 1rem;
+  }
 }
 
 /* Dynamic form animations */
@@ -638,6 +656,8 @@ pre {
   animation: slideInFromBottom 0.3s ease forwards;
   opacity: 0;
   transform: translateY(20px);
+  margin-bottom: 1.5rem;
+  clear: both;
 }
 
 #dynamic-inputs .form-group:nth-child(1) {
@@ -871,7 +891,14 @@ select[name="type"] option[value="eliminar"]:before {
   background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
   font-weight: 500;
   border-bottom: 2px solid #dee2e6;
-  cursor: default;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.custom-select-option.placeholder:hover {
+  background: linear-gradient(135deg, #e9ecef 0%, #dee2e6 100%);
+  color: #777;
+  transform: translateX(2px);
 }
 
 .custom-select-option:not(.placeholder):hover {
@@ -926,4 +953,109 @@ select[name="type"] option[value="eliminar"]:before {
 
 .custom-select-dropdown::-webkit-scrollbar-thumb:hover {
   background: #5a6fd8;
+}
+
+/* Estilos mejorados para los resultados */
+.result-container {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+.result-container.success {
+  background-color: #d4edda;
+  border-color: #c3e6cb;
+  color: #155724;
+}
+
+.result-container.error {
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+  color: #721c24;
+}
+
+.code-preview {
+  margin: 1rem 0;
+}
+
+.code-preview h5 {
+  margin-bottom: 0.5rem;
+  color: #495057;
+}
+
+.code-preview pre {
+  background: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 4px;
+  padding: 1rem;
+  overflow-x: auto;
+  font-size: 0.9rem;
+}
+
+.live-preview {
+  margin: 1rem 0;
+}
+
+.live-preview h5 {
+  margin-bottom: 0.5rem;
+  color: #495057;
+}
+
+.preview-frame {
+  border: 2px solid #dee2e6;
+  border-radius: 8px;
+  padding: 1rem;
+  background: #fff;
+  margin: 0.5rem 0;
+}
+
+.explanation {
+  margin: 1rem 0;
+}
+
+.explanation h5 {
+  margin-bottom: 0.5rem;
+  color: #495057;
+}
+
+.explanation ul {
+  margin: 0;
+  padding-left: 1.5rem;
+}
+
+.explanation li {
+  margin: 0.25rem 0;
+}
+
+.explanation code {
+  background: #f8f9fa;
+  padding: 0.2rem 0.4rem;
+  border-radius: 3px;
+  font-size: 0.9em;
+}
+
+/* Asegurar que elementos no se solapen en mobile */
+@media (max-width: 768px) {
+  .form-group select {
+    margin-bottom: 1rem;
+  }
+
+  .exercise-form {
+    padding: 1rem;
+  }
+}
+
+.form-group select:focus,
+.form-group select:active {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+  z-index: 100 !important;
+  position: relative;
+}
+
+.form-group:focus-within {
+  z-index: 100;
+  position: relative;
 }

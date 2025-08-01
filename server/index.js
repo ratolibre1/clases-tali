@@ -44,6 +44,23 @@ app.get('/objetos', (req, res) => {
   res.sendFile(path.join(__dirname, '../client/index.html'));
 });
 
+// Rutas SPA para secciones de frontend
+app.get('/html', (req, res) => {
+  res.sendFile(path.join(__dirname, '../client/index.html'));
+});
+
+app.get('/css', (req, res) => {
+  res.sendFile(path.join(__dirname, '../client/index.html'));
+});
+
+app.get('/layout', (req, res) => {
+  res.sendFile(path.join(__dirname, '../client/index.html'));
+});
+
+app.get('/responsive', (req, res) => {
+  res.sendFile(path.join(__dirname, '../client/index.html'));
+});
+
 // Ruta principal
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '../client/index.html'));
@@ -52,5 +69,7 @@ app.get('/', (req, res) => {
 app.listen(PORT, () => {
   console.log(`Servidor corriendo en http://localhost:${PORT}`);
   console.log(`Frontend disponible en: http://localhost:${PORT}/`);
-  console.log(`Rutas SPA habilitadas - navega directamente a /ifs, /loops, etc.`);
+  console.log(`Rutas SPA habilitadas:`);
+  console.log(`  Backend: /ifs, /loops, /switches, /arrays, /objetos`);
+  console.log(`  Frontend: /html, /css, /layout, /responsive`);
 }); 
