@@ -1,4 +1,4 @@
-# Tutorial Primeros Pasos - Programación 🚀
+# Tutorial Primeros Pasos - Programación 🚀 HOLA TALI
 
 Un proyecto tutorial interactivo donde **implementarás** conceptos básicos de programación como ifs, loops, switches y manejo de arrays/objetos. ¡Aprende programando!
 
